@@ -29,6 +29,8 @@ As you can see there are 5 folders contained in this repo. The images folder you
 
 To start, you should add your name in a header comment at the top of each *schedule.c*.
 
+You only need to make changes to *schedule.c*; however, if you would like to add a node struct definition to the *schedule.h* file, you may do so. You should **not** change the provided function definitions. If you make changes to *schedule.h*, you should also add a header comment that includes your name at the top of this file.
+
 Looking at each *schedule.c* file, you will see that it contains a rudimentary scheduler API to add a process, remove a process, and get the next process from your scheduler. It will be your job to figure out how each scheduler works and add the appropriate code to make the given scheduler schedule correctly.
 
 I would recommend implementing these in the order discussed later in this document as to some extent they will build upon the concepts of the earlier schedule as they get more complicated.
