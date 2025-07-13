@@ -7,18 +7,19 @@ By Bryan Dixon
 The purpose of this assignment is for you gain insight into how schedulers work on the system.
 
 ## Logistics
-The only “hand-in” will be electronic. Any clarifications and revisions to the assignment will be posted here and emailed out to the class.
+The only “hand-in” will be electronic. Any clarifications and revisions to the assignment will be modified here and announced to the class during class or via Canvas.
 
 ## Hand Out Instructions
 
-I recommend you use an Ubuntu Linux virtual machine to complete this assignment. Alternatively, you can use the jaguar machines or your native Linux install.
+I recommend you use an Ubuntu Linux virtual machine to complete this assignment. Alternatively, you can use the ecc-linux machines or your native Linux install.
 
-You should download the project as a zip or clone it locally to the protected directory (the *lab directory*) in which you plan to do your work. Assuming you wish to put it in your home directory and are there:
+Download this repository as a zip file and then extract it where you would like to store your project files. An example for downloading and extracting the zip file is below, assuming you are in your home directory (you may remove the main.zip file after unzipping it):
 
 ```bash
-~$ git clone git@github.com:CSUChico-CSCI340/CSCI340-Scheduler.git
-#Will now have folder CSCI340-Scheduler with files
-$ cd CSCI340-Scheduler/
+~$ wget https://github.com/CSUChico-CSCI340/CSCI440-Scheduler/archive/refs/heads/main.zip
+~$ unzip main.zip
+#Will now have folder CSCI440-Scheduler with files
+$ cd CSCI440-Scheduler/
 $ ls
 LICENSE			images/			multilevelRR/		simpleRR/
 README.md		multilevelFeedback/	simple/
@@ -28,7 +29,7 @@ As you can see there are 5 folders contained in this repo. The images folder you
 
 To start, you should add your name in a header comment at the top of each *schedule.c*.
 
-Looking at each *schedule.c* file, you will see that it contains a rudimentary scheduler API to add a process, remove a process, and get the next process from your scheduler. It will your job to figure out how each scheduler works and add the appropriate code to make the given scheduler schedule correctly.
+Looking at each *schedule.c* file, you will see that it contains a rudimentary scheduler API to add a process, remove a process, and get the next process from your scheduler. It will be your job to figure out how each scheduler works and add the appropriate code to make the given scheduler schedule correctly.
 
 I would recommend implementing these in the order discussed later in this document as to some extent they will build upon the concepts of the earlier schedule as they get more complicated.
 
@@ -67,11 +68,10 @@ Figure 1: Multi Level Round Robin Priority Scheduler
 
 Figure 2: Multi Level Feedback Priority Scheduler
 
-You aren’t allowed to import any libraries not already provided in the
-schedule.c file.
+You aren’t allowed to import any libraries not already provided in the schedule.c file.
 
 ## Data Structures in C
-As you can’t include any libraries for data structures you’ll likely want to implement your own data structure to implement the FCFS scheduler. As such you’ll need to do this in C code. As an example here is a simple implementation of a linked list in C using structs:
+As you can’t include any libraries for data structures, you will likely want to implement your own data structure to implement the FCFS scheduler. As such you will need to do this in C code. As an example, here is a simple implementation of a linked list in C using structs:
 
 ```C
 #include <stdio.h>
