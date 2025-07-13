@@ -140,6 +140,10 @@ int main(){
 I have provided some tools to help you check your work.
 
 * **Reference solution.** - I’ve included a reference output file with the expected solution for each scheduler you need to write. Your program should produce identical output to that of the ref.out file.
+* You can:
+    * use the provided Makefiles and compile your code with `make`
+    * run the executable and redirect the output to your own output file, e.g. `./sim > mytest.out`
+    * use `diff` or `vimdiff` to compare the ref.out file with your output file
 
 
 ## Hints
