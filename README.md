@@ -56,21 +56,36 @@ In practice, these goals often conflict (e.g. throughput versus latency), thus a
 ## Your Task
 The task for this assignment is to implement the scheduler APIs provided to you in the schedule.c files for the following schedulers:
 
-* Simple - A simple FCFS scheduler
-* Simple Round Robin - A simple Round Robin scheduler with a quanta of 4 time units.
-* Multi Level Round Robin - A variant of a MultiLevel priority scheduler using Round Robin schedulers. This scheduler iterates through the different levels starting with the highest priority (priority 0) and choses the process next in the queue for that priority level to schedule for a specified quanta or time. The higher the priority the more quanta is given. Your implementation should mirror the quanta and number of priorities shown in Figure 1.  
+* **Simple** - A simple FCFS scheduler
+    * FCFS (first come, first serve) is also known as a FIFO (first in, first out) scheduler.
+    * Behaves like a queue: the first process added to the queue is the first to be removed and executed.
+      
+* **Simple Round Robin** - A simple Round Robin scheduler with a quanta of 4 time units.  	
+    * A scheduling quantum is also known as a time slice.
+    * Similar to the simple FCFS scheduler, but this one is sensitive to response time.
+      
+* **Multi Level Round Robin** - A variant of a Multi-Level priority scheduler using Round Robin schedulers.
+    * The first time the scheduler runs, it should start at the highest priority level (priority 0). Each subsequent time it runs, it should move to the next lower priority level, cycling through all levels in order. Use a global index variable to track which priority level the scheduler is currently processing.
+    * The scheduler should: iterate through all priority levels in order (starting from the tracked index), skip any empty queues, and at each non-empty level, select the next process in that queue and schedule it for the appropriate time quantum.
+    * Higher-priority levels should be assigned larger time quanta. Your implementation should match the quanta and number of priority levels shown in Figure 1.
 
 ![MultiLevel Queue](https://raw.githubusercontent.com/CSUChico-CSCI340/CSCI340-Scheduler/master/images/multilevel.png "MultiLevel Queue")
 
 Figure 1: Multi Level Round Robin Priority Scheduler
 
-* Multi Level Feedback - A MultiLevel priority scheduler with feedback. This queue will consist of a FCFS scheduler for the highest priority tasks and two round robin queues for the lower priority tasks. High priority will be represented with 0 increasing in value as the priority gets lower. Your implementation should mirror the number of priorities and implementation in Figure 2. Additionally, after a task hasn't been scheduled for 1000 time cycles your process should then be added to the higher priority scheduler.
+* **Multi Level Feedback** - A Multi-Level priority scheduler with feedback.
+    * This scheduler consists of three queues: a FCFS scheduler for the highest priority tasks and two round robin queues for lower priority tasks.
+    * The highest priority is represented with 0, and higher numbers represent lower priorities. The scheduler should always check the highest priority queue first.
+    * All high priority tasks (priority 0) should run to completion. All lower priority tasks (priority 1 and 2) are assigned a time quantum. Your implementation should mirror the number of priorities and implementation in Figure 2.
+    * Each process maintains an age, which starts at 0 whenever it enters a queue. As long as a process stays in the same queue, its age increments over time.
+    * If a process has not been scheduled for 1000 time cycles, it should be promoted to the next higher-priority queue (its age should be reset to 0 when it is placed in the new queue).
+    * In this implementation, once a process is promoted to the highest priority queue (priority 0), it remains there until it is completed.
 
 ![MultiLevel Feedback Queue](https://raw.githubusercontent.com/CSUChico-CSCI340/CSCI340-Scheduler/master/images/multilevelfeedback.png "MultiLevel Feedback Queue")
 
 Figure 2: Multi Level Feedback Priority Scheduler
 
-You aren’t allowed to import any libraries not already provided in the schedule.c file.
+You are not allowed to import any libraries not already provided in the schedule.c file.
 
 ## Data Structures in C
 As you can’t include any libraries for data structures, you will likely want to implement your own data structure to implement the FCFS scheduler. As such you will need to do this in C code. As an example, here is a simple implementation of a linked list in C using structs:
