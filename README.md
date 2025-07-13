@@ -61,8 +61,8 @@ The task for this assignment is to implement the scheduler APIs provided to you 
     * Behaves like a queue: the first process added to the queue is the first to be removed and executed.
       
 * **Simple Round Robin** - A simple Round Robin scheduler with a quanta of 4 time units.  	
-    * A scheduling quantum is also known as a time slice.
     * Similar to the simple FCFS scheduler, but this one is sensitive to response time.
+    * A scheduling quantum is also known as a time slice - each process runs for the given time slice before the scheduler switches to the next job. This process repeats until the job is finished.
       
 * **Multi Level Round Robin** - A variant of a Multi-Level priority scheduler using Round Robin schedulers.
     * The first time the scheduler runs, it should start at the highest priority level (priority 0). Each subsequent time it runs, it should move to the next lower priority level, cycling through all levels in order. Use a global index variable to track which priority level the scheduler is currently processing.
@@ -77,7 +77,7 @@ Figure 1: Multi Level Round Robin Priority Scheduler
     * This scheduler consists of three queues: a FCFS scheduler for the highest priority tasks and two round robin queues for lower priority tasks.
     * The highest priority is represented with 0, and higher numbers represent lower priorities. The scheduler should always check the highest priority queue first.
     * All high priority tasks (priority 0) should run to completion. All lower priority tasks (priority 1 and 2) are assigned a time quantum. Your implementation should mirror the number of priorities and implementation in Figure 2.
-    * Each process maintains an age, which starts at 0 whenever it enters a queue. As long as a process stays in the same queue, its age increments over time.
+    * Each process maintains an age, which starts at 0 whenever it enters a queue. As long as a process stays in the same queue, its age increments over time. Age is the mechanism that provides feedback for the scheduler.
     * If a process has not been scheduled for 1000 time cycles, it should be promoted to the next higher-priority queue (its age should be reset to 0 when it is placed in the new queue).
     * In this implementation, once a process is promoted to the highest priority queue (priority 0), it remains there until it is completed.
 
