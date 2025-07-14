@@ -29,7 +29,7 @@ As you can see there are 5 folders contained in this repo. The images folder you
 
 To start, you should add your name in a header comment at the top of each *schedule.c*.
 
-You only need to make changes to *schedule.c*; however, if you would like to add a node struct definition to the *schedule.h* file, you may do so. You should **not** change the provided function definitions. If you make changes to *schedule.h*, you should also add a header comment that includes your name at the top of this file.
+You only need to make changes to *schedule.c*; however, if you would like to add declarations to the *schedule.h* file, you may do so. You should **not** modify any of the provided function prototypes in the header file. All corresponding function definitions (the actual implementation) must be in *schedule.c*. If you make changes to *schedule.h*, please include a header comment at the top of the file with your name and a brief note indicating how you modified the file.
 
 Looking at each *schedule.c* file, you will see that it contains a rudimentary scheduler API to add a process, remove a process, and get the next process from your scheduler. It will be your job to figure out how each scheduler works and add the appropriate code to make the given scheduler schedule correctly.
 
@@ -161,7 +161,7 @@ Your solution will be tested agains the reference output. You will get full cred
 So if you get all of them working you'll get 100%.
 
 ## Hand In Instructions
-You only have to change schedule.c. You need to upload schedule.c to the INGInious submission pages to mark your completion time. There will be a INGInious submission for each of the different schedulers so make sure you submit to the correct scheduler submission.
+You only need to change the *schedule.c* files; you may have also made some additions to the *schedule.h* files. You need to upload the *schedule.c* and *schedule.h* files to the INGInious submission pages to mark your completion time. There will be a INGInious submission for each of the different schedulers so make sure you submit to the correct scheduler submission.
 
 ## References
 1. Wikipedia. “Scheduling (computing)”. Wikipedia, The Free Encyclopedia. 2012. http://en.wikipedia.org/wiki/Process_scheduler. Online; accessed 16-February-2014.
