@@ -69,9 +69,9 @@ The task for this assignment is to implement the scheduler APIs provided to you 
     * The scheduler should: iterate through all priority levels in order (starting from the tracked index), skip any empty queues, and at each non-empty level, select the next process in that queue and schedule it for the appropriate time quantum.
     * Higher-priority levels should be assigned larger time quanta. Your implementation should match the quanta and number of priority levels shown in Figure 1.
 
-![MultiLevel Queue](https://raw.githubusercontent.com/CSUChico-CSCI340/CSCI340-Scheduler/master/images/multilevel.png "MultiLevel Queue")
-
 Figure 1: Multi Level Round Robin Priority Scheduler
+
+![MultiLevel Queue](https://raw.githubusercontent.com/CSUChico-CSCI340/CSCI340-Scheduler/master/images/multilevel.png "MultiLevel Queue")
 
 * **Multi Level Feedback** - A Multi-Level priority scheduler with feedback.
     * This scheduler consists of three queues: a FCFS scheduler for the highest priority tasks and two round robin queues for lower priority tasks.
@@ -80,10 +80,11 @@ Figure 1: Multi Level Round Robin Priority Scheduler
     * Each process maintains an age, which starts at 0 whenever it enters a queue. As long as a process stays in the same queue, its age increments over time. Age is the mechanism that provides feedback for the scheduler.
     * If a process has not been scheduled for 1000 time cycles, it should be promoted to the next higher-priority queue (its age should be reset to 0 when it is placed in the new queue).
     * In this implementation, once a process is promoted to the highest priority queue (priority 0), it remains there until it is completed.
+      
+Figure 2: Multi Level Feedback Priority Scheduler
 
 ![MultiLevel Feedback Queue](https://raw.githubusercontent.com/CSUChico-CSCI340/CSCI340-Scheduler/master/images/multilevelfeedback.png "MultiLevel Feedback Queue")
 
-Figure 2: Multi Level Feedback Priority Scheduler
 
 You are not allowed to import any libraries not already provided in the schedule.c file.
 
