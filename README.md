@@ -150,6 +150,16 @@ I have provided some tools to help you check your work.
 ## Hints
 
 * Read the [CPU Scheduling](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched.pdf) and [Multi-Level Feedback Scheduling](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched-mlfq.pdf) sections from the online textbook.
+* To verify that you are managing memory correctly, you may want to use *valgrind* to test your program. To install *valgrind*, use the following command:
+```
+sudo apt-get install valgrind
+```
+Once you have the `sim` executable, you can use *valgrind* to check for memory leaks in your program:
+```
+valgrind ./sim
+```
+Valgrind should report that "All heap blocks were freed -- no leaks are possible", and no additional warnings or errors should be produced.
+You can write your code in any environment you like. But you have to make sure that your programs can be compiled and executed on Ubuntu.
 
 ## Evaluation
 Your solution will be tested agains the reference output. You will get full credit if your assignment reproduces the reference output. Grades for this assignment will be assigned as follows:
